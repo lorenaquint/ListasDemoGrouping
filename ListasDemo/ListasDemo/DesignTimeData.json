@@ -1,0 +1,24 @@
+{
+  "MainPage.xaml": [
+    {
+      "FirstName": "JohnJohnJohnJohnJohnJohnJohn",
+      "Phone": "(123)53423",
+      "Email": "amigo1@hotmail.com"
+    },
+    {
+      "FirstName": "Pam",
+      "Phone": "(123)53423",
+      "Email": "amigo2@hotmail.com"
+    },
+    {
+      "FirstName": "Cassy",
+      "Phone": "(123)53423",
+      "Email": "amigo3@hotmail.com"
+    },
+    {
+      "FirstName": "Susan",
+      "Phone": "(123)53423",
+      "Email": "amigo4@hotmail.com"
+    }
+  ]
+} 

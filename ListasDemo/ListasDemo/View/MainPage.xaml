@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ListasDemo.Behaviors"
+             x:Class="ListasDemo.View.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ItempedAttached x:Key="CommBeha"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Command="{Binding AddFriendCommand}">
+            
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ListView ItemsSource="{Binding Friends}"
+              Header="Mis Amigos"
+              Footer="Todos los derechos reservados"
+              SeparatorColor="Red"
+              HasUnevenRows="True"
+              IsGroupingEnabled="True"
+              GroupShortNameBinding="{Binding Key}"
+              local:ItempedAttached.Command = "{Binding ITemTappedCommand}"
+              SelectedItem="{Binding CurrentFriend}">
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell
+                    Height="30">
+                    <StackLayout
+                        VerticalOptions="FillAndExpand"
+                        Padding="10"
+                        BackgroundColor="Blue">
+                        <Label
+                            Text="{Binding Key}"
+                            TextColor="White"
+                            VerticalOptions="Center"></Label>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        
+        <ListView.HeaderTemplate>
+            <DataTemplate>
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center">
+                    <Label Text="Mis"
+                           TextColor="Green"></Label>
+                    <Label Text="Amigos"
+                           TextColor="Yellow"></Label>
+                </StackLayout>
+            </DataTemplate>
+        </ListView.HeaderTemplate>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label
+                                Text="{Binding FirstName}"></Label>
+                            <Label
+                                Text="{Binding Phone}"
+                                Grid.Column="1"></Label>
+                            <Button Text="Call!"
+                                    Grid.Column="2"></Button>
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+        <ListView.FooterTemplate>
+            <DataTemplate>
+                <StackLayout
+                    Orientation="Horizontal"
+                    HorizontalOptions="Center">
+                    <Label Text="Todos los derechos"
+                           TextColor="White"></Label>
+                    <Label Text="reservados"
+                           TextColor="Red"></Label>
+                </StackLayout>
+            </DataTemplate>
+        </ListView.FooterTemplate>
+    </ListView>
+
+</ContentPage>
