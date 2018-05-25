@@ -6,6 +6,7 @@
              >
     
     <ContentPage.Content>
+        <StackLayout>
         <Label Text="Nombre"/>
         <Entry Placeholder="Ingrese nombre"
                Text="{Binding FriendModel.FirstName, Mode=TwoWay}"/>
@@ -18,6 +19,7 @@
         <Button Text="Guardar"
                 HeightRequest="100"
                 Command="{Binding SaveFriendCommand}"/>
+        </StackLayout>
     </ContentPage.Content>
     
 </ContentPage>
