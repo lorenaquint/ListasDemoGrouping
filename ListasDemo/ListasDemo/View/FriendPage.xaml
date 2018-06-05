@@ -18,6 +18,8 @@
                Text="{Binding FriendModel.Email, Mode=TwoWay}"/>
         <Button Text="Guardar"
                 HeightRequest="100"
+                HorizontalOptions="Center"
+                BackgroundColor="Azure"
                 Command="{Binding SaveFriendCommand}"/>
         </StackLayout>
     </ContentPage.Content>

@@ -69,8 +69,11 @@
                             <Label
                                 Text="{Binding Phone}"
                                 Grid.Column="1"></Label>
-                            <Button Text="Call!"
-                                    Grid.Column="2"></Button>
+                            <Image Grid.Column="2" 
+                                       HorizontalOptions="End" 
+                                       Source="ic_phone_forwarded">
+                            </Image>
+                           
                         </Grid>
                     </ViewCell.View>
                 </ViewCell>

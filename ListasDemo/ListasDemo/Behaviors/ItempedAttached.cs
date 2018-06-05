@@ -23,7 +23,8 @@ namespace ListasDemo.Behaviors
 			var control = bindable as ListView;
             if (control != null)
 			{
-				control.ItemTapped += Control_ItemTapped;
+                control.ItemTapped -= Control_ItemTapped;
+                control.ItemTapped += Control_ItemTapped;
 			}
 		}
 
