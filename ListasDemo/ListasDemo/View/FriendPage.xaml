@@ -16,11 +16,21 @@
         <Label Text="email"/>
         <Entry Placeholder="Ingrese mail"
                Text="{Binding FriendModel.Email, Mode=TwoWay}"/>
-        <Button Text="Guardar"
-                HeightRequest="100"
-                HorizontalOptions="Center"
-                BackgroundColor="Azure"
-                Command="{Binding SaveFriendCommand}"/>
+            <StackLayout Orientation="Horizontal">
+                 <Button Text="Guardar"
+                    HeightRequest="100"
+                    BackgroundColor="Navy"
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding SaveFriendCommand}"/>
+                <Button Text="Eliminar"
+                    HeightRequest="20"
+                    IsEnabled="{Binding IsEnabled}"
+                    BackgroundColor="OrangeRed"
+                    TextColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding DeleteFriendCommand }"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
     
