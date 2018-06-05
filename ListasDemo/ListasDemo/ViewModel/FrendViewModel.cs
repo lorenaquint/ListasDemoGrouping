@@ -59,6 +59,13 @@ namespace ListasDemo.ViewModel
 
         public async Task SaveFriend()
         {
+            if (string.IsNullOrWhiteSpace(this.FriendModel.Email) || string.IsNullOrWhiteSpace(this.FriendModel.FirstName) || string.IsNullOrWhiteSpace(this.FriendModel.Phone))
+            {
+                await Application.Current.MainPage.DisplayAlert("Error",
+                                                                "Ningún campo puede estar vacío",
+                                                                "Aceptar");
+                return;
+            }
             await App.Database.SaveFriendAsync(FriendModel);
             await Navigation.PopToRootAsync();
         }

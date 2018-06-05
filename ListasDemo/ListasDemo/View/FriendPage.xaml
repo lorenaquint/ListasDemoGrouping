@@ -12,9 +12,11 @@
                Text="{Binding FriendModel.FirstName, Mode=TwoWay}"/>
         <Label Text="Telefóno"/>
         <Entry Placeholder="(57) 333-333-333"
-               Text="{Binding FriendModel.Phone, Mode=TwoWay}"/>
+               Text="{Binding FriendModel.Phone, Mode=TwoWay}"
+               Keyboard="Telephone"/>
         <Label Text="email"/>
         <Entry Placeholder="Ingrese mail"
+               Keyboard="Email"
                Text="{Binding FriendModel.Email, Mode=TwoWay}"/>
             <StackLayout Orientation="Horizontal">
                  <Button Text="Guardar"
