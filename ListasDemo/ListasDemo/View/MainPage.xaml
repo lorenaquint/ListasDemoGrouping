@@ -14,7 +14,12 @@
             
         </ToolbarItem>
     </ContentPage.ToolbarItems>
+    <StackLayout>
+    <SearchBar Text="{Binding Filter}"
+               SearchCommand="{Binding SearchCommand}"
+               Placeholder="Ingrese el nombre">
 
+    </SearchBar>
     <ListView ItemsSource="{Binding Friends}"
               Header="Mis Amigos"
               Footer="Todos los derechos reservados"
@@ -92,5 +97,6 @@
             </DataTemplate>
         </ListView.FooterTemplate>
     </ListView>
+    </StackLayout>
 
 </ContentPage>

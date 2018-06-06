@@ -15,9 +15,27 @@ namespace ListasDemo.ViewModel
 
 	public class MainPageViewModel:Notificable
     {
+        private FriendRepository repository;
         public ObservableCollection
             <Grouping<string, Friend>> Friends { get; set; }
-		public Command AddFriendCommand
+        public Command SearchCommand
+        {
+            get;
+            set;
+        }
+        private string filter;
+        public string Filter
+        {
+            get
+            {
+                return filter;
+            }
+            set
+            {
+                SetValue(ref filter, value);
+            }
+        }
+        public Command AddFriendCommand
 		{
 			get;
 			set;
@@ -44,12 +62,12 @@ namespace ListasDemo.ViewModel
 		private INavigation Navigation;
 		public MainPageViewModel(INavigation navigation)
         {
-            FriendRepository repository 
-                = new FriendRepository();
+            repository  = new FriendRepository();
             Friends = repository.GetAllGrouped();
 			Navigation = navigation;
 			AddFriendCommand = new Command(async () => await AddFriend());
-			ITemTappedCommand = new Command(async () => await NavigateToEditFriendView());
+            SearchCommand = new Command(async () => await Search());
+            ITemTappedCommand = new Command(async () => await NavigateToEditFriendView());
         }
 
 		public async Task AddFriend()
@@ -59,6 +77,15 @@ namespace ListasDemo.ViewModel
 		public async Task NavigateToEditFriendView()
         {
 			await Navigation.PushAsync(new FriendPage(CurrentFriend));
+        }
+        private async Task Search()
+        {
+            repository = new FriendRepository();
+
+            var lstFriends = repository.GetAllByFirstLetter(Filter);
+
+            await Friends = ObservableCollection<Grouping<string, Friend>>(lstFriends);
+
         }
     }
 }
